@@ -23,8 +23,8 @@ def index():
       for top_level_comment in submission.comments:
             comment += ' ' + top_level_comment.body
       data = submission.title + comment + submission.selftext
-      data = model.predict(fitted_vectorizer.transform([string(data)])
-      return render_template('pred.html',link=data)
-   return render_template('index.html')
+      ans = model.predict(fitted_vectorizer.transform([string(data)]))
+      return(render_template('pred.html',link=ans))
+   return(render_template('index.html'))
 if __name__ == "__main__":
    app.run()

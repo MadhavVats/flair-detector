@@ -4,7 +4,7 @@ from sklearn.externals import joblib
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
-import pickle
+
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
@@ -15,7 +15,7 @@ fitted_vectorizer = joblib.load('fitted_vectorizer')
 app = Flask(__name__)
 reddit = praw.Reddit(client_id='MwhK0qtk4ZqRdw', client_secret='cjytrTxD1OR4KtmEyZRk6wY7tfI', user_agent='flair' ,username='gcgvhjchvt2244')
 
-print(model.predict(fitted_vectorizer.transform([""""""])))
+# print(model.predict(fitted_vectorizer.transform([""""""])))
 @app.route('/', methods=['GET','POST'])
 def index():
    if request.method == 'POST':

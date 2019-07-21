@@ -14,15 +14,28 @@
 </head>
 
 <body>
-    <form class="form-inline" method="POST" action="/">
+    <nav class="navbar navbar-light ">
+        <a class="navbar-brand" href="#">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/418PuxYS63L.png" class="img-responsive"
+                width="30" height="30" class="d-inline-block align-top" alt="">
+            Reddit Flair detector
+        </a>
+    </nav>
+    <div class="jumbotron text-center">
+        <div class="flex-container" style="  display: flex; justify-content: flex-start;flex-flow: row;">
+            <form class="flex-item form-inline" method="POST" action="/">
 
-        <div class="form-group mx-sm-3 mb-2">
-            <label for="lnk" class="sr-only">Password</label>
-            <input type="url" class="form-control" id="lnk" name='link' placeholder="url">
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="lnk" class="sr-only">Password</label>
+                    <input type="url" class="form-control" id="lnk" name='link' placeholder="url">
+                </div>
+                <button type="submit" class="btn btn-dark mb-2">submit</button>
+            </form>
+            <h3 class='flex-item' style="margin-left: 30px">Prediction is</h3>
+
         </div>
-        <button type="submit" class="btn btn-primary mb-2">submit</button>
-    </form>
-    {{ link }}
+    </div>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

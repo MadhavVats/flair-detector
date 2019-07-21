@@ -14,7 +14,6 @@ fitted_vectorizer = joblib.load('fitted_vectorizer')
 app = Flask(__name__)
 reddit = praw.Reddit(client_id='MwhK0qtk4ZqRdw', client_secret='cjytrTxD1OR4KtmEyZRk6wY7tfI', user_agent='flair' ,username='gcgvhjchvt2244')
 
-# print(model.predict(fitted_vectorizer.transform([""""""])))
 @app.route('/', methods=['GET','POST'])
 def index():
    if request.method == 'POST':
@@ -24,6 +23,7 @@ def index():
       for top_level_comment in submission.comments:
             comment += ' ' + top_level_comment.body
       data = submission.title + comment + submission.selftext
+      data = model.predict(fitted_vectorizer.transform(data)
       return render_template('pred.html',link=data)
    return render_template('index.html')
 if __name__ == "__main__":

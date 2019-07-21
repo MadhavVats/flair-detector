@@ -1,7 +1,6 @@
 import praw
 from flask import Flask,render_template,request
 from sklearn.externals import joblib
-import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
 

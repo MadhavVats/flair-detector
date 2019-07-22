@@ -38,5 +38,5 @@ As it can be observed that Linear Support Vector Classification has the maximum 
 ### Refrences
 1.The template for bar graph was taken from here:-https://canvasjs.com/html5-javascript-bar-chart/ <br />
 2. https://kavita-ganesan.com/tfidftransformer-tfidfvectorizer-usage-differences/#.XTYCDfzhWV5<br />
-3. https://praw.readthedocs.io/en/latest/
+3. https://praw.readthedocs.io/en/latest/ <br />
 4.Usage sklearn's models were learn from here:- https://www.kaggle.com/selener/multi-class-text-classification-tfidf

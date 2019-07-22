@@ -11,6 +11,39 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Reddit flair detector</title>
+    <script>
+        window.onload = function () {
+            {% for key, value in stats.items() -%}
+            var chart = new CanvasJS.Chart("{{key}}", {
+                animationEnabled: true,
+
+                title: {
+                    text: "{{key}}"
+                },
+                axisX: {
+                    interval: 1
+                },
+                axisY2: {
+                    interlacedColor: "rgba(1,77,101,.2)",
+                    gridColor: "rgba(1,77,101,.1)",
+                    title: ""
+                },
+                data: [{
+                    type: "bar",
+                    name: "companies",
+                    axisYType: "secondary",
+                    color: "#014D65",
+                    dataPoints: [
+                        {% for key2, value2 in value.items() -%}
+                    { y: {{ value2 }}, label: "{{key2}}" },
+            {% - endfor %}
+                ]
+            }]
+        });
+        chart.render();
+        {% - endfor %}
+    }   
+    </script>
 </head>
 
 <body>
@@ -35,7 +68,10 @@
 
         </div>
     </div>
-
+    {% for key, value in stats.items() -%}
+    <div id="{{key}}" style="height: 370px; width: 80%;margin-left:80px;padding-bottom: 30px"></div>
+    {%- endfor %}
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

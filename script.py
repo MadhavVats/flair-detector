@@ -1,3 +1,5 @@
+from pymongo import MongoClient
+import pymongo
 import praw
 from flask import Flask,render_template,request
 from sklearn.externals import joblib
@@ -9,6 +11,19 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import LinearSVC
 from sklearn.model_selection import cross_val_score
+from pymongo import MongoClient
+myclient = MongoClient(
+    "mongodb+srv://Madhav:%2AAr%3C54jK@cluster0-b8qbz.mongodb.net/test?retryWrites=true&w=majority")
+mydb = myclient["data"]
+mycol = mydb["stats2"]
+stats={}
+for document in mycol.find():
+      flair_stat=document.copy()
+      name=flair_stat['name']
+      del flair_stat['_id']
+      del flair_stat['name']
+      stats[name]=flair_stat
+
 model = joblib.load('model_joblib')
 fitted_vectorizer = joblib.load('fitted_vectorizer')
 app = Flask(__name__)
@@ -24,7 +39,8 @@ def index():
             comment += ' ' + top_level_comment.body
       data = submission.title + comment + submission.selftext
       ans = model.predict(fitted_vectorizer.transform([data]))
-      return(render_template('pred.html',link=ans))
-   return(render_template('index.html'))
+      return(render_template('pred.html',link=ans,stats=stats))
+   return(render_template('index.html',stats=stats))
 if __name__ == "__main__":
    app.run()
+

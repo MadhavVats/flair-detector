@@ -35,3 +35,8 @@ With training data as comments+title+content:- <br />
 ![Screenshot4](screenshot4.png)
 <br />
 As it can be observed that Linear Support Vector Classification has the maximum accuracy with comments+title+content as data. So this model is chosen and saved using sklearn's joblip. Script.py loads this model and outputs the prediction with the help of flask as the backend.
+### Refrences
+1.The template for bar graph was taken from here:-https://canvasjs.com/html5-javascript-bar-chart/ <br />
+2. https://kavita-ganesan.com/tfidftransformer-tfidfvectorizer-usage-differences/#.XTYCDfzhWV5<br />
+3. https://praw.readthedocs.io/en/latest/
+4.Usage sklearn's models were learn from here:- https://www.kaggle.com/selener/multi-class-text-classification-tfidf

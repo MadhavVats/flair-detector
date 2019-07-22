@@ -11,67 +11,67 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Reddit flair detector</title>
-    <script>
-        window.onload = function () {
-            {% for key, value in stats.items() -%}
-            var chart = new CanvasJS.Chart("{{key}}", {
-                animationEnabled: true,
+<script>
+    window.onload = function () {
+        {% for key, value in stats.items() -%}
+        var chart = new CanvasJS.Chart("{{key}}", {
+            animationEnabled: true,
 
-                title: {
-                    text: "{{key}}"
-                },
-                axisX: {
-                    interval: 1
-                },
-                axisY2: {
-                    interlacedColor: "rgba(1,77,101,.2)",
-                    gridColor: "rgba(1,77,101,.1)",
-                    title: ""
-                },
-                data: [{
-                    type: "bar",
-                    name: "companies",
-                    axisYType: "secondary",
-                    color: "#014D65",
-                    dataPoints: [
-                        {% for key2, value2 in value.items() -%}
-                    { y: {{ value2 }}, label: "{{key2}}" },
-            {% - endfor %}
+            title: {
+                text: "{{key}}"
+            },
+            axisX: {
+                interval: 1
+            },
+            axisY2: {
+                interlacedColor: "rgba(1,77,101,.2)",
+                gridColor: "rgba(1,77,101,.1)",
+                title: ""
+            },
+            data: [{
+                type: "bar",
+                name: "companies",
+                axisYType: "secondary",
+                color: "#014D65",
+                dataPoints: [
+                    {% for key2, value2 in value.items() -%}
+                    { y: {{value2}}, label: "{{key2}}" },
+                    {%- endfor %}
                 ]
             }]
         });
         chart.render();
-        {% - endfor %}
+        {%- endfor %}
     }   
-    </script>
+</script>
 </head>
 
 <body>
     <nav class="navbar navbar-light ">
         <a class="navbar-brand" href="#">
-            <img src="https://images-na.ssl-images-amazon.com/images/I/418PuxYS63L.png" class="img-responsive"
-                width="30" height="30" class="d-inline-block align-top" alt="">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/418PuxYS63L.png" class = "img-responsive" width="30" height="30" class="d-inline-block align-top"
+                alt="">
             Reddit Flair detector
         </a>
     </nav>
     <div class="jumbotron text-center">
-        <div class="flex-container" style="  display: flex; justify-content: flex-start;flex-flow: row;">
-            <form class="flex-item form-inline" method="POST" action="/">
-
-                <div class="form-group mx-sm-3 mb-2">
-                    <label for="lnk" class="sr-only">Password</label>
-                    <input type="url" class="form-control" id="lnk" name='link' placeholder="url">
-                </div>
-                <button type="submit" class="btn btn-dark mb-2">submit</button>
-            </form>
-            <h3 class='flex-item' style="margin-left: 30px">Prediction is {{ link }}</h3>
-
+    <div class="flex-container" style="  display: flex; justify-content: flex-start;flex-flow: row;">
+    <form class="flex-item form-inline" method="POST" action="/">
+    
+        <div class="form-group mx-sm-3 mb-2">
+            <label for="lnk" class="sr-only">Password</label>
+            <input type="url" class="form-control" id="lnk" name='link' placeholder="url">
         </div>
+        <button type="submit" class="btn btn-dark mb-2">submit</button>
+    </form>
+    <h3 class='flex-item' style="margin-left: 30px">Prediction is {{ link }}</h3>
+
     </div>
-    {% for key, value in stats.items() -%}
-    <div id="{{key}}" style="height: 370px; width: 80%;margin-left:80px;padding-bottom: 30px"></div>
-    {%- endfor %}
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    </div>
+{% for key, value in stats.items() -%}
+<div id="{{key}}" style="height: 370px; width: 80%;margin-left:80px;padding-bottom: 30px"></div>
+{%- endfor %}
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

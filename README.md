@@ -10,3 +10,16 @@ Flair detector is a web app that can detect the flair (category) of a Reddit pos
 ***requirements.txt :*** Contains the dependencies needed for heroku to build the web app.<br />
 ***script.py :-*** Contains the backend written with flask.<br />
 ***script2.ipynb :-*** This is the jupyter notebook in which the ML model was created and tested and the data was saved to the mongodb collection.<br />
+### Dependencies
+praw==6.3.1<br />
+Flask==1.1.1<br />
+itsdangerous==1.1.0<br /> 
+Jinja2==2.10.1    <br /> 
+gunicorn==19.9.0<br />
+MarkupSafe==1.1.1<br />
+Werkzeug==0.15.5<br />
+sklearn==0.0 <br /> 
+pymongo==3.8.0<br />
+dnspython==1.16.0<br />
+To run the run the program locally, type the command "python3 script.py" in the terminal.
+### Approach used 

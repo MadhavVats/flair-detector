@@ -33,4 +33,5 @@ With training data as content:-<br />
 ![Screenshot](screenshot3.png)
 With training data as comments+title+content:- <br />
 ![Screenshot4](screenshot4.png)
+<br />
 As it can be observed that Linear Support Vector Classification has the maximum accuracy with comments+title+content as data. So this model is chosen and saved using sklearn's joblip. Script.py loads this model and outputs the prediction with the help of flask as the backend.

@@ -35,8 +35,11 @@ def index():
       link = request.form['link']
       submission = reddit.submission(url=link)
       comment = ''
-      for top_level_comment in submission.comments:
-            comment += ' ' + top_level_comment.body
+      try:
+            for top_level_comment in submission.comments:
+                  comment += ' ' + top_level_comment.body
+      except:
+            pass
       data = submission.title + comment + submission.selftext
       ans = model.predict(fitted_vectorizer.transform([data]))
       return(render_template('pred.html',link=ans,stats=stats))
